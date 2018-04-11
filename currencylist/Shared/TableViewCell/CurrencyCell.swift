@@ -43,6 +43,13 @@ class CurrencyCell: UITableViewCell {
         super.updateConstraints()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        textLabel?.text = nil
+        detailTextLabel?.text = nil
+        amountLabel.text = nil
+    }
+    
     public func configure(with currency: Currency) {
         textLabel?.text = currency.name
         detailTextLabel?.text = "\(currency.volume)"
