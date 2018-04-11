@@ -32,6 +32,7 @@ class MainController: ViewController {
         self.title = "Stocks"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getData))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.black
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: spinner)
         
         tableView.dataSource = self
