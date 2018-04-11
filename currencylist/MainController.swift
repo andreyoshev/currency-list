@@ -69,11 +69,24 @@ class MainController: ViewController {
                     self.currencies = result
                     self.tableView.reloadData()
                 }
+                else {
+                    self.showAlert(with: "Что-то пошло не так")
+                }
             }
             else {
                 self.spinner.stopAnimating()
+                self.showAlert(with: error?.localizedDescription ?? "")
             }
         }
+    }
+    
+    private func showAlert(with message: String) {
+        let alert = UIAlertController.init(title: nil, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
